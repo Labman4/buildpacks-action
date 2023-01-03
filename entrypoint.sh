@@ -22,6 +22,8 @@ if [ -n "$INPUT_ENV_FILES" ]; then
   done
 fi
 
+map_env=${INPUT_ENV_MAP}
+
 buildpacks=""
 if [ -n "$INPUT_BUILDPACKS" ]; then
   arr=(${INPUT_BUILDPACKS})
@@ -32,7 +34,7 @@ if [ -n "$INPUT_BUILDPACKS" ]; then
   done
 fi
 
-command="pack build ${INPUT_IMAGE}:${INPUT_TAG} ${env_str} ${env_files_str} --path ${INPUT_PATH} ${buildpacks} --builder ${INPUT_BUILDER}"
+command="pack build ${INPUT_IMAGE}:${INPUT_TAG} ${env_str} ${env_files_str} --path ${INPUT_PATH} ${buildpacks} --builder ${INPUT_BUILDER} -env ${map_env}"
 echo "command=${command}" >> $GITHUB_OUTPUT
 
 sh -c "${command}"
