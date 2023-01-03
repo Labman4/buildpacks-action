@@ -28,6 +28,9 @@ inputs:
   env_files:
     description: 'Read build-time environment variables from these files'
     required: false
+  map_env:
+    description: 'use for maven args'
+    required: false
 outputs:
   command:
     description: 'build command executed'
