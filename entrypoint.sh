@@ -35,7 +35,7 @@ if [ -n "$INPUT_BUILDPACKS" ]; then
 fi
 
 
-command="pack build ${INPUT_IMAGE}:${INPUT_TAG} ${env_str} ${env_files_str} --env ${INPUT_MAP_ENV} --path ${INPUT_PATH} --volume ~/.m2:/home/cnb/.m2:rw ${buildpacks} --builder ${INPUT_BUILDER}"
+command="pack build ${INPUT_IMAGE}:${INPUT_TAG} ${env_str} ${env_files_str} --env ${INPUT_MAP_ENV} --path ${INPUT_PATH} --volume ${INPUT_VOLUME}/.m2:/home/cnb/.m2:rw ${buildpacks} --builder ${INPUT_BUILDER}"
 echo "command=${command}" >> $GITHUB_OUTPUT
 
 sh -c "${command}"
