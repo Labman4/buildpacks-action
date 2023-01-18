@@ -31,6 +31,9 @@ inputs:
   map_env:
     description: 'use for maven args'
     required: false
+  volume: 
+    description: 'mount m2 repo'
+    required: true
 outputs:
   command:
     description: 'build command executed'
